@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabda <aabda@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/07 15:00:14 by aabda             #+#    #+#             */
-/*   Updated: 2022/09/07 11:30:27 by aabda            ###   ########.fr       */
+/*   Created: 2022/09/07 11:02:18 by aabda             #+#    #+#             */
+/*   Updated: 2022/09/07 15:37:53 by aabda            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipex.h"
+#include "../includes/pipex.h"
+#include <stdio.h>
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+int	main(int argc, char **argv, char **envp)
 {
-	size_t	size;
+	// char *options[3] = {"ls", "-la", NULL};
+	// (void)argc;
+	// (void)argv;
+	// execve("/bin/ls", options, envp);
 
-	if (*needle == '\0')
-		return ((char *)haystack);
-	size = ft_strlen(needle);
-	while (*haystack != '\0' && len >= size)
+	char	**test = path_final(envp);
+	int i = 0;
+	while (test[i])
 	{
-		if (*haystack == *needle && ft_strncmp(haystack, needle, size) == 0)
-			return ((char *)haystack);
-		haystack++;
-		len--;
+		printf("%s\n", test[i]);
+		i++;
 	}
-	return (NULL);
+
+	return (0);
 }

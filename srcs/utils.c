@@ -6,11 +6,11 @@
 /*   By: aabda <aabda@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 13:37:14 by aabda             #+#    #+#             */
-/*   Updated: 2022/09/07 15:19:24 by aabda            ###   ########.fr       */
+/*   Updated: 2022/09/07 15:37:58 by aabda            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../includes/pipex.h"
 
 char	**find_paths(char **envp)
 {

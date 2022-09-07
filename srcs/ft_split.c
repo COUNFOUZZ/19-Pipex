@@ -6,11 +6,11 @@
 /*   By: aabda <aabda@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:59:37 by aabda             #+#    #+#             */
-/*   Updated: 2022/09/07 12:11:47 by aabda            ###   ########.fr       */
+/*   Updated: 2022/09/07 15:37:27 by aabda            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipex.h"
+#include "../includes/pipex.h"
 
 static size_t	check_str(char const *s, char c)
 {

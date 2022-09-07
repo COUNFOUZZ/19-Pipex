@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabda <aabda@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/07 11:02:18 by aabda             #+#    #+#             */
-/*   Updated: 2022/09/07 15:19:50 by aabda            ###   ########.fr       */
+/*   Created: 2022/07/04 11:58:17 by aabda             #+#    #+#             */
+/*   Updated: 2022/09/07 15:37:39 by aabda            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
-#include <stdio.h>
+#include "../includes/pipex.h"
 
-int	main(int argc, char **argv, char **envp)
+size_t	ft_strlen(const char *s)
 {
-	// char *options[3] = {"ls", "-la", NULL};
-	// (void)argc;
-	// (void)argv;
-	// execve("/bin/ls", options, envp);
+	size_t	i;
 
-	char	**test = path_final(envp);
-	int i = 0;
-	while (test[i])
-	{
-		printf("%s\n", test[i]);
+	i = 0;
+	while (s && s[i])
 		i++;
-	}
-
-	return (0);
+	return (i);
 }

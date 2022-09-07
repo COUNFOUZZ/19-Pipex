@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabda <aabda@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/14 17:26:45 by aabda             #+#    #+#             */
-/*   Updated: 2022/09/07 11:30:29 by aabda            ###   ########.fr       */
+/*   Created: 2022/07/11 18:08:44 by aabda             #+#    #+#             */
+/*   Updated: 2022/09/07 15:37:36 by aabda            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipex.h"
+#include "../includes/pipex.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
 	size_t	i;
+	size_t	j;
 
-	if (ft_strlen(s) < len)
-		len = ft_strlen(s);
-	str = malloc(sizeof(char) * (len + 1));
-	if (!str || !s)
+	if (!s1 || !s2)
 		return (NULL);
-	if (start > (unsigned int)ft_strlen(s))
-	{
-		str[0] = '\0';
-		return (str);
-	}
+	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
+	if (!str)
+		return (NULL);
 	i = 0;
-	while (s[start] && (i < len))
+	while (s1[i])
 	{
-		str[i] = s[start];
+		str[i] = s1[i];
 		i++;
-		start++;
+	}
+	j = 0;
+	while (s2[j])
+	{
+		str[i] = s2[j];
+		i++;
+		j++;
 	}
 	str[i] = '\0';
 	return (str);

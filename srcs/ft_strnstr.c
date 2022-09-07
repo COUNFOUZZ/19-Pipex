@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabda <aabda@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/11 18:08:44 by aabda             #+#    #+#             */
-/*   Updated: 2022/09/07 11:30:20 by aabda            ###   ########.fr       */
+/*   Created: 2022/07/07 15:00:14 by aabda             #+#    #+#             */
+/*   Updated: 2022/09/07 15:37:45 by aabda            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pipex.h"
+#include "../includes/pipex.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	char	*str;
-	size_t	i;
-	size_t	j;
+	size_t	size;
 
-	if (!s1 || !s2)
-		return (NULL);
-	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (s1[i])
+	if (*needle == '\0')
+		return ((char *)haystack);
+	size = ft_strlen(needle);
+	while (*haystack != '\0' && len >= size)
 	{
-		str[i] = s1[i];
-		i++;
+		if (*haystack == *needle && ft_strncmp(haystack, needle, size) == 0)
+			return ((char *)haystack);
+		haystack++;
+		len--;
 	}
-	j = 0;
-	while (s2[j])
-	{
-		str[i] = s2[j];
-		i++;
-		j++;
-	}
-	str[i] = '\0';
-	return (str);
+	return (NULL);
 }
