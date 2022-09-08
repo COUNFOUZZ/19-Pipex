@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   path.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabda <aabda@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 13:37:14 by aabda             #+#    #+#             */
-/*   Updated: 2022/09/07 15:37:58 by aabda            ###   ########.fr       */
+/*   Updated: 2022/09/08 14:34:37 by aabda            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-char	**find_paths(char **envp)
+char	**find_paths_and_split(char **envp)
 {
 	char	*envp_path;
 	char	**paths;
@@ -49,7 +49,23 @@ char	**paths_add_slash(char **paths)
 	return (paths);
 }
 
-char	**path_final(char **envp)
+char	*cmd_exist(char	*cmd, char **paths)
 {
-	return (paths_add_slash(find_paths(envp)));
+	char	*cmd_path;
+	int		i;
+
+	i = -1;
+	while (paths[++i])
+	{
+		cmd_path = ft_strjoin(paths[i], cmd);
+		if (access(cmd_path, F_OK | X_OK) == 0)
+			return (cmd_path);
+		free(cmd_path);
+	}
+	return (NULL);
+}
+
+char	*path_final(char *cmd, char **envp)
+{
+	return (cmd_exist(cmd, paths_add_slash(find_paths_and_split(envp))));
 }
