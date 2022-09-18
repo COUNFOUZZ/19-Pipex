@@ -6,7 +6,7 @@
 /*   By: aabda <aabda@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 11:01:49 by aabda             #+#    #+#             */
-/*   Updated: 2022/09/08 14:34:26 by aabda            ###   ########.fr       */
+/*   Updated: 2022/09/18 17:07:26 by aabda            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*cmd_exist(char	*cmd, char **paths);
 char	**ft_split(char const *s, char c);
 char	**find_paths_and_split(char **envp);
-char	*path_final(char *cmd, char **envp);
 char	**paths_add_slash(char **paths);
 
 #endif
