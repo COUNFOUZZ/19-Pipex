@@ -6,13 +6,13 @@
 /*   By: aabda <aabda@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 13:37:14 by aabda             #+#    #+#             */
-/*   Updated: 2022/09/18 17:08:21 by aabda            ###   ########.fr       */
+/*   Updated: 2022/09/18 21:41:39 by aabda            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-char	**find_paths_and_split(char **envp)
+static char	**find_paths_and_split(char **envp)
 {
 	char	*envp_path;
 	char	**paths;
@@ -34,7 +34,7 @@ char	**find_paths_and_split(char **envp)
 	return (paths);
 }
 
-char	**paths_add_slash(char **paths)
+static char	**paths_add_slash(char **paths)
 {
 	char	*tmp;
 	int		i;
