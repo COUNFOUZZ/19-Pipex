@@ -6,7 +6,7 @@
 /*   By: aabda <aabda@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:11:05 by aabda             #+#    #+#             */
-/*   Updated: 2022/09/28 17:08:59 by aabda            ###   ########.fr       */
+/*   Updated: 2022/09/28 19:25:57 by aabda            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	child1(t_data data, char **envp)
 	close(data.fd_pipe[0]);
 	close(data.fd_pipe[1]);
 	data.path_cmd1 = cmd_exist(data.cmd1[0], envp);
-	execve(data.path_cmd1, data.cmd1, NULL);
+	if (execve(data.path_cmd1, data.cmd1, NULL) == -1)
+		print_error();
 }
 
 void	child2(t_data data, char **envp)
@@ -30,7 +31,8 @@ void	child2(t_data data, char **envp)
 	close(data.fd_pipe[0]);
 	close(data.fd_pipe[1]);
 	data.path_cmd2 = cmd_exist(data.cmd2[0], envp);
-	execve(data.path_cmd2, data.cmd2, NULL);
+	if (execve(data.path_cmd2, data.cmd2, NULL) == -1)
+		print_error();
 }
 
 void	parent(t_data data)
