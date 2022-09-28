@@ -6,7 +6,7 @@
 /*   By: aabda <aabda@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 11:01:49 by aabda             #+#    #+#             */
-/*   Updated: 2022/09/28 14:09:30 by aabda            ###   ########.fr       */
+/*   Updated: 2022/09/28 17:13:05 by aabda            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <string.h>
+# include <errno.h>
 
 typedef struct s_data
 {
@@ -42,5 +44,6 @@ void	initialize_struct(t_data *data, char **argv);
 void	child1(t_data data, char **envp);
 void	child2(t_data data, char **envp);
 void	parent(t_data data);
+void	print_error(void);
 
 #endif
