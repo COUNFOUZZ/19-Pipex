@@ -6,7 +6,7 @@
 /*   By: aabda <aabda@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 13:37:14 by aabda             #+#    #+#             */
-/*   Updated: 2022/09/28 18:42:24 by aabda            ###   ########.fr       */
+/*   Updated: 2022/09/28 19:14:24 by aabda            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,16 @@ char	*cmd_exist(char	*cmd, char **paths)
 	char	*cmd_path;
 	int		i;
 
+	i = -1;
+	while (cmd[++i])
+	{
+		if (cmd[i] == '/')
+		{
+			if (access(cmd, F_OK | X_OK) == 0)
+				return (cmd);
+			return (NULL);
+		}
+	}
 	paths = paths_add_slash(paths);
 	i = -1;
 	while (paths[++i])
