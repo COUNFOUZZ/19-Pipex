@@ -6,7 +6,7 @@
 /*   By: aabda <aabda@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 13:37:14 by aabda             #+#    #+#             */
-/*   Updated: 2022/09/18 21:41:39 by aabda            ###   ########.fr       */
+/*   Updated: 2022/09/28 18:42:24 by aabda            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static char	**find_paths_and_split(char **envp)
 
 	if (!envp)
 		return (NULL);
+	envp_path = NULL;
 	i = -1;
 	while (envp[++i])
 	{
@@ -30,7 +31,8 @@ static char	**find_paths_and_split(char **envp)
 		}
 	}
 	paths = ft_split(envp_path, ':');
-	free(envp_path);
+	if (envp_path)
+		free(envp_path);
 	return (paths);
 }
 
