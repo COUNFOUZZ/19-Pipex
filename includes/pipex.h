@@ -6,7 +6,7 @@
 /*   By: aabda <aabda@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 11:01:49 by aabda             #+#    #+#             */
-/*   Updated: 2022/09/28 14:03:00 by aabda            ###   ########.fr       */
+/*   Updated: 2022/09/28 14:09:30 by aabda            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*cmd_exist(char	*cmd, char **paths);
 char	**ft_split(char const *s, char c);
 char	**getcmd(char *s);
+void	initialize_struct(t_data *data, char **argv);
 void	child1(t_data data, char **envp);
 void	child2(t_data data, char **envp);
 void	parent(t_data data);
