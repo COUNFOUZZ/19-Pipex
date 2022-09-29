@@ -6,12 +6,11 @@
 /*   By: aabda <aabda@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:11:05 by aabda             #+#    #+#             */
-/*   Updated: 2022/09/28 19:25:57 by aabda            ###   ########.fr       */
+/*   Updated: 2022/09/29 13:58:15 by aabda            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
-#include <stdio.h>
 
 void	child1(t_data data, char **envp)
 {
