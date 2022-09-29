@@ -6,7 +6,7 @@
 /*   By: aabda <aabda@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 13:55:58 by aabda             #+#    #+#             */
-/*   Updated: 2022/09/28 18:44:40 by aabda            ###   ########.fr       */
+/*   Updated: 2022/09/29 12:32:53 by aabda            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ int	main(int argc, char **argv, char **envp)
 			parent(data);
 		}
 	}
+	else
+		write(2, "Invalid number of arguments\n", 28);
 	return (0);
 }
