@@ -38,17 +38,12 @@ static char	**find_paths_and_split(char **envp)
 
 static char	**paths_add_slash(char **paths)
 {
-	char	*tmp;
 	int		i;
 
 	paths = find_paths_and_split(paths);
 	i = -1;
 	while (paths[++i])
-	{
-		tmp = paths[i];
 		paths[i] = ft_strjoin(paths[i], "/");
-		free(tmp);
-	}
 	return (paths);
 }
 
@@ -57,6 +52,8 @@ char	*cmd_exist(char	*cmd, char **paths)
 	char	*cmd_path;
 	int		i;
 
+	if (!cmd)
+		return (NULL);
 	i = -1;
 	while (cmd[++i])
 	{
