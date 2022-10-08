@@ -19,18 +19,15 @@ int	main(int argc, char **argv, char **envp)
 	if (argc == 5)
 	{
 		initialize_struct(&data, argv);
-		if (pipe(data.fd_pipe) == -1)
-			return (1);
+		ft_error(pipe(data.fd_pipe));
 		data.pid_1 = fork();
-		if (data.pid_1 == -1)
-			print_error();
+		ft_error(data.pid_1);
 		if (data.pid_1 == 0)
 			child1(data, envp);
 		else if (data.pid_1 > 0)
 		{
 			data.pid_2 = fork();
-			if (data.pid_2 == -1)
-				print_error();
+			ft_error(data.pid_2);
 			if (data.pid_2 == 0)
 				child2(data, envp);
 			parent(data);
