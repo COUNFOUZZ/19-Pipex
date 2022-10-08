@@ -19,6 +19,13 @@ void	child1(t_data data, char **envp)
 	ft_error(close(data.fd_pipe[0]));
 	ft_error(close(data.fd_pipe[1]));
 	data.path_cmd1 = cmd_exist(data.cmd1[0], envp);
+	if (!data.path_cmd1)
+	{
+		write(2, "Command not found: ", 19);
+		write(2, data.cmd1[0], ft_strlen(data.cmd1[0]));
+		write(2, "\n", 1);
+		exit(1);
+	}
 	ft_error(execve(data.path_cmd1, data.cmd1, NULL));
 }
 
@@ -29,6 +36,13 @@ void	child2(t_data data, char **envp)
 	ft_error(close(data.fd_pipe[0]));
 	ft_error(close(data.fd_pipe[1]));
 	data.path_cmd2 = cmd_exist(data.cmd2[0], envp);
+	if (!data.path_cmd2)
+	{
+		write(2, "Command not found: ", 19);
+		write(2, data.cmd2[0], ft_strlen(data.cmd2[0]));
+		write(2, "\n", 1);
+		exit(1);
+	}
 	ft_error(execve(data.path_cmd2, data.cmd2, NULL));
 }
 
