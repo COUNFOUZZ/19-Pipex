@@ -45,5 +45,6 @@ void	child1(t_data data, char **envp);
 void	child2(t_data data, char **envp);
 void	parent(t_data data);
 void	ft_error(int ret);
+void	ft_cmd_not_found(char *path_cmd, char	**cmd);
 
 #endif

@@ -32,6 +32,17 @@ void	ft_error(int ret)
 		print_error();
 }
 
+void	ft_cmd_not_found(char *path_cmd, char	**cmd)
+{
+	if (!path_cmd)
+		{
+			write(2, "Command not found: ", 19);
+			write(2, cmd[0], ft_strlen(cmd[0]));
+			write(2, "\n", 1);
+			exit(1);
+		}
+}
+
 void	initialize_struct(t_data *data, char **argv)
 {
 	data->cmd1 = getcmd(argv[2]);
