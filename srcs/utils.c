@@ -6,7 +6,7 @@
 /*   By: aabda <aabda@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 16:13:12 by aabda             #+#    #+#             */
-/*   Updated: 2022/09/28 18:11:19 by aabda            ###   ########.fr       */
+/*   Updated: 2022/10/10 11:44:11 by aabda            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ void	ft_error(int ret)
 void	ft_cmd_not_found(char *path_cmd, char	**cmd)
 {
 	if (!path_cmd)
-		{
-			write(2, "Command not found: ", 19);
-			write(2, cmd[0], ft_strlen(cmd[0]));
-			write(2, "\n", 1);
-			exit(1);
-		}
+	{
+		write(2, "Command not found: ", 19);
+		write(2, cmd[0], ft_strlen(cmd[0]));
+		write(2, "\n", 1);
+		exit(1);
+	}
 }
 
 void	initialize_struct(t_data *data, char **argv)
