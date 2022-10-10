@@ -19,17 +19,14 @@ char	**getcmd(char *s)
 	return (ft_split(s, ' '));
 }
 
-static void	print_error(void)
-{
-	write(2, strerror(errno), ft_strlen(strerror(errno)));
-	write(2, "\n", 1);
-	exit(1);
-}
-
 void	ft_error(int ret)
 {
 	if (ret == -1)
-		print_error();
+	{
+		write(2, strerror(errno), ft_strlen(strerror(errno)));
+		write(2, "\n", 1);
+		exit(1);
+	}
 }
 
 void	ft_cmd_not_found(char *path_cmd, char	**cmd)
